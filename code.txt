@@ -1,0 +1,4 @@
+mycode = '''
+print("hello world")
+print("hello")
+'''
