@@ -1,2 +1,57 @@
-print("hello world")
-print("hello")
+import streamlit as st
+from time import sleep
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
+options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+options.add_experimental_option("prefs",prefs)
+options.headless = False
+
+
+def sele():
+    driver = webdriver.Chrome(ChromeDriverManager().install(),  options=options)
+    driver.implicitly_wait(5)
+#số gì đây
+    driver.get('https://shopee.vn/buyer/login?next=https%3A%2F%2Fshopee.vn%2F')
+    log = driver.find_elements_by_class_name("yReWDs")
+    log[0].send_keys("phanchau66@gmail.com")
+    log[1].send_keys("Minhchau642")
+    action = ActionChains(driver)
+    action.send_keys(Keys.ENTER)
+    action.perform()
+    sleep(3)
+    driver.get("https://giaitri.shopee.vn/lottery/home/e2beb3258915d83a94d50fc8b9b5393b?loginNext=https%3A%2F%2Fshopee.vn%2Fm%2Fshopeesogiday&source=microsite&component_name=pick%20number%20all&md_component_id=1626854005651&microsite_labelid=&microsite_pageid=12831&section_location=4")
+    try:
+        a = driver.find_elements_by_xpath('//*[@id="__next"]/section/div/main/div[1]/div/div[3]/button')
+        a[0].click()
+        sleep(2)
+        b = driver.find_elements_by_xpath('//*[@id="__next"]/section/div/main/div[1]/div/div[4]/button')
+        b[0].click()
+        sleep(2)
+        c = driver.find_elements_by_xpath('//*[@id="__next"]/section/section/div/div/div[2]/button')
+        c[0].click()
+        driver.find_element_by_xpath("//div[@class='jsx-198374908 jsx-3231435790 claim btn-group']").click()
+    except:
+        pass
+    driver.refresh()
+
+    try:
+        driver.get("https://shopee.vn/m/shopeesogiday#CHOINHOM")
+        sleep(5)
+        driver.switch_to.frame(driver.find_element_by_xpath("//*[@id='main']/div/div[2]/div[1]/div/div[2]/div/div[11]/div/div/div/div/div/iframe"))
+        driver.find_element_by_xpath("//*[@id='__next']/section/div/div[2]/div[2]").click()
+        sleep(1)
+        link = driver.find_elements_by_xpath("//input[@class='jsx-3914777058 jsx-1637561583 share-link']")[0].get_attribute('value')
+        print(link)
+        st.write(link)
+    except:
+        pass
+    driver.close()
+
+try:
+    sele()
+except:
+    sele()
