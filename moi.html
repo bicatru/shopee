@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Số gì đây</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Số Gì Đây phiên quay số lúc 20:00 ngày 21/2" />
+	<meta property="og:description" content="Bạn tham gia chọn số nhóm cùng mình nha! Chơi cùng đồng đội, X5 cơ hội!" />
+	<meta property="og:image" content="https://storage.googleapis.com/shopeevn-general/shopeevn-general/e2beb3258915d83a94d50fc8b9b5393b/group_share_image_landscape_1631502878320514225.png" />
+
+</head>
+<body>
+	<div class="wrapper" style="flex-direction: column;justify-content: space-around;text-align: center;padding: 10px;margin: 213px auto;">
+	<div class="pic">
+		<img src="https://cdngarenanow-a.akamaihd.net/shopee/shopee-livestreaming-live-vn/static/media/live-down.35a7c101.png"></div>
+	<div class="down-button">
+		<a href="https://www.facebook.com/groups/330848649050373" id="button" style=" background: #ee4d2d; border-radius: 2px; font-family: Roboto-Medium; font-size: 1.4rem; color: #fff; text-decoration: none; ">Mở trong ứng dụng</a>
+	</div>
+
+</div>
+    <script>
+function getMobileOperatingSystem() {
+    a = 0;
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+	a =1;
+        document.getElementById('button').href="fb://group/330848649050373";
+	window.location="fb://group/330848649050373";
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+	a =1;
+        document.getElementById('button').href="fb://group/?id=330848649050373";
+	window.location="fb://group/?id=330848649050373";
+    } else 
+    if (a==0) {
+	window.location="https://www.facebook.com/groups/330848649050373";
+	}
+}
+getMobileOperatingSystem()
+</script>
+
+</body>
+</html>
